@@ -1,10 +1,12 @@
 import '../App.css';
 import React, { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 
 import { Table, Card, InputGroup, FormControl, Form, Spinner, Button } from 'react-bootstrap'
 import Axios from 'axios';
 
 const Employee = () => {
+    const userGlobal = useSelector(state => state.user)
     const [employees, setEmployees] = useState([])
     const [filteredEmployees, setFilteredEmployees] = useState([])
     const [username, setUsername] = useState("")
@@ -212,7 +214,7 @@ const Employee = () => {
                 <div className='col-12'>
                     <Card className=''>
                         <Card.Header bg="dark">
-                            Filter Employee
+                            Filter Employee {userGlobal.username}
                         </Card.Header>
                         <Card.Body>
                             <InputGroup onChange={(e) => setUsernameFilter(e.target.value)}>
