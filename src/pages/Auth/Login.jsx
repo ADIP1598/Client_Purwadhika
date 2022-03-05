@@ -15,6 +15,7 @@ const Login = () => {
             password,
         })
             .then((res) => {
+                delete res.data.dataLogin.password
                 console.log(res)
                 dispatch({ type: "USER_LOGIN", payload: res.data.dataLogin })
             })
